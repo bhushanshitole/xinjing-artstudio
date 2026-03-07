@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Instagram, Mail, Menu, X, ChevronRight, Palette, Sparkles, Heart } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -15,6 +15,7 @@ import { SmoothScroll } from "@/components/smooth-scroll"
 import { TiltCard } from "@/components/tilt-card"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { GradientOrb } from "@/components/gradient-orb"
+import { Lightbox } from "@/components/lightbox"
 
 const artworks = [
   {
@@ -86,6 +87,12 @@ const testimonials = [
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+
+  const lightboxImages = artworks.map((a) => ({ src: a.image, title: a.title, category: a.category }))
+  const closeLightbox = useCallback(() => setLightboxIndex(null), [])
+  const prevImage = useCallback(() => setLightboxIndex((i) => (i !== null ? (i - 1 + artworks.length) % artworks.length : null)), [])
+  const nextImage = useCallback(() => setLightboxIndex((i) => (i !== null ? (i + 1) % artworks.length : null)), [])
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -94,6 +101,15 @@ export default function Home() {
       <ScrollProgress />
       <NoiseOverlay />
       <SmoothScroll />
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={lightboxImages}
+          currentIndex={lightboxIndex}
+          onClose={closeLightbox}
+          onPrev={prevImage}
+          onNext={nextImage}
+        />
+      )}
 
       {/* Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -319,7 +335,11 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {artworks.map((artwork, i) => (
               <Reveal key={artwork.id} type="image" delay={i * 100}>
-                <div className="group cursor-pointer" data-cursor-text="View">
+                <div
+                  className="group cursor-pointer"
+                  data-cursor-text="View"
+                  onClick={() => setLightboxIndex(i)}
+                >
                   <div className="aspect-square relative overflow-hidden mb-4">
                     <Image
                       src={artwork.image}
