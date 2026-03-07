@@ -16,6 +16,7 @@ import { TiltCard } from "@/components/tilt-card"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { GradientOrb } from "@/components/gradient-orb"
 import { Lightbox } from "@/components/lightbox"
+import { PaintCanvas } from "@/components/paint-canvas"
 
 const artworks = [
   {
@@ -177,8 +178,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col justify-center pt-20 pb-12 px-6 relative">
+        <PaintCanvas />
         <GradientOrb />
-        <div className="container mx-auto">
+        <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="line-mask">
