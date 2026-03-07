@@ -135,7 +135,7 @@ export default function Home() {
             <Link href="https://www.instagram.com/soulmira_art" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
               <Instagram className="w-5 h-5" />
             </Link>
-            <Link href="mailto:hello@soulmira.art" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link href="mailto:xinjingdesign1@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
               <Mail className="w-5 h-5" />
             </Link>
           </div>
@@ -166,7 +166,7 @@ export default function Home() {
                 <Link href="https://www.instagram.com/soulmira_art" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
                   <Instagram className="w-5 h-5" />
                 </Link>
-                <Link href="mailto:hello@soulmira.art" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="mailto:xinjingdesign1@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                   <Mail className="w-5 h-5" />
                 </Link>
               </div>
@@ -399,52 +399,36 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-24 px-6 border-t border-border">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <RevealGroup>
-              <div>
-                <p className="reveal-text text-sm uppercase tracking-widest text-primary mb-4">Join Us</p>
-                <h2 className="reveal-text text-4xl md:text-5xl font-serif mb-8 text-balance">
-                  Start Your Child&apos;s Creative Journey
-                </h2>
-                <p className="reveal-text text-muted-foreground leading-relaxed mb-8">
-                  Ready to nurture your child&apos;s artistic talents? Get in touch to learn about our classes,
-                  workshops, and creative programs designed for young artists of all skill levels.
-                </p>
-                <div className="reveal-text space-y-4">
-                  <div className="flex items-center gap-4">
-                    <Instagram className="w-5 h-5 text-primary" />
-                    <Link
-                      href="https://www.instagram.com/soulmira_art"
-                      target="_blank"
-                      className="nav-link-anim text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      @soulmira_art
-                    </Link>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Mail className="w-5 h-5 text-primary" />
-                    <Link
-                      href="mailto:hello@soulmira.art"
-                      className="nav-link-anim text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      hello@soulmira.art
-                    </Link>
-                  </div>
-                </div>
+        <div className="container mx-auto max-w-2xl text-center">
+          <RevealGroup>
+            <div>
+              <p className="reveal-text text-sm uppercase tracking-widest text-primary mb-4">Join Us</p>
+              <h2 className="reveal-text text-4xl md:text-5xl font-serif mb-8 text-balance">
+                Start Your Child&apos;s Creative Journey
+              </h2>
+              <p className="reveal-text text-muted-foreground leading-relaxed mb-10">
+                Ready to nurture your child&apos;s artistic talents? Get in touch to learn about our classes,
+                workshops, and creative programs designed for young artists of all skill levels.
+              </p>
+              <div className="reveal-text flex flex-col sm:flex-row items-center justify-center gap-6">
+                <Link
+                  href="https://www.instagram.com/soulmira_art"
+                  target="_blank"
+                  className="inline-flex items-center gap-3 nav-link-anim text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Instagram className="w-5 h-5 text-primary" />
+                  @soulmira_art
+                </Link>
+                <Link
+                  href="mailto:xinjingdesign1@gmail.com"
+                  className="inline-flex items-center gap-3 nav-link-anim text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Mail className="w-5 h-5 text-primary" />
+                  xinjingdesign1@gmail.com
+                </Link>
               </div>
-            </RevealGroup>
-
-            <Reveal type="image" delay={200}>
-              <div className="aspect-video relative overflow-hidden">
-                <ParallaxImage
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unnamed-cMzuPORJBHhgez8HbjLEQtYt6ChZ42.png"
-                  alt="Gallery of artwork from Soulmira Art Studio"
-                  className="object-top"
-                />
-              </div>
-            </Reveal>
-          </div>
+            </div>
+          </RevealGroup>
         </div>
       </section>
 
@@ -494,7 +478,7 @@ export default function Home() {
               <Link href="https://www.instagram.com/soulmira_art" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="w-5 h-5" />
               </Link>
-              <Link href="mailto:hello@soulmira.art" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="mailto:xinjingdesign1@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
               </Link>
             </div>
