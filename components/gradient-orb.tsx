@@ -79,14 +79,14 @@ export function GradientOrb() {
   }, [])
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
       <div
         ref={orb1}
-        className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.08] blur-[120px] transition-[background] duration-1000"
+        className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.06] blur-[150px] transition-[background] duration-1000"
       />
       <div
         ref={orb2}
-        className="absolute bottom-1/3 left-1/3 w-[400px] h-[400px] rounded-full opacity-[0.06] blur-[100px] transition-[background] duration-1000"
+        className="absolute bottom-1/3 left-1/3 w-[400px] h-[400px] rounded-full opacity-[0.04] blur-[130px] transition-[background] duration-1000"
       />
     </div>
   )

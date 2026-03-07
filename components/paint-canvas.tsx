@@ -164,7 +164,7 @@ export function PaintCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-auto z-0"
+      className="hidden md:block absolute inset-0 w-full h-full pointer-events-auto z-0"
       style={{ opacity: 0.7 }}
     />
   )
