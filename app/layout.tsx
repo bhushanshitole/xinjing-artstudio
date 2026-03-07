@@ -15,7 +15,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Soulmira Art Studio - Children\'s Art Workshop',
   description: 'Nurturing creativity and imagination through art. A children\'s art studio where young artists explore colors, shapes, and self-expression.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
