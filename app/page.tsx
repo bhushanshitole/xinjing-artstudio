@@ -11,6 +11,10 @@ import { NoiseOverlay } from "@/components/noise-overlay"
 import { Reveal, RevealGroup } from "@/components/reveal"
 import { MagneticButton } from "@/components/magnetic-button"
 import { ParallaxImage } from "@/components/parallax-image"
+import { SmoothScroll } from "@/components/smooth-scroll"
+import { TiltCard } from "@/components/tilt-card"
+import { AnimatedCounter } from "@/components/animated-counter"
+import { GradientOrb } from "@/components/gradient-orb"
 
 const artworks = [
   {
@@ -89,6 +93,7 @@ export default function Home() {
       <CustomCursor />
       <ScrollProgress />
       <NoiseOverlay />
+      <SmoothScroll />
 
       {/* Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -156,6 +161,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col justify-center pt-20 pb-12 px-6 relative">
+        <GradientOrb />
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -208,7 +214,9 @@ export default function Home() {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-card p-6 border border-border">
-                <p className="text-4xl font-serif text-primary">100+</p>
+                <p className="text-4xl font-serif text-primary">
+                  <AnimatedCounter target={100} suffix="+" />
+                </p>
                 <p className="text-sm text-muted-foreground uppercase tracking-widest">Young Artists</p>
               </div>
             </Reveal>
@@ -264,27 +272,27 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <Reveal delay={0}>
-                  <div className="bg-card p-6 border border-border">
+                  <TiltCard className="bg-card p-6 border border-border">
                     <Palette className="w-8 h-8 text-primary mb-4" />
                     <h3 className="font-serif text-xl mb-2">Mixed Media</h3>
                     <p className="text-sm text-muted-foreground">Exploring various art techniques and materials</p>
-                  </div>
+                  </TiltCard>
                 </Reveal>
                 <Reveal delay={160}>
-                  <div className="bg-card p-6 border border-border">
+                  <TiltCard className="bg-card p-6 border border-border">
                     <Heart className="w-8 h-8 text-primary mb-4" />
                     <h3 className="font-serif text-xl mb-2">Nurturing Space</h3>
                     <p className="text-sm text-muted-foreground">A supportive environment for creative growth</p>
-                  </div>
+                  </TiltCard>
                 </Reveal>
               </div>
               <div className="space-y-4 mt-8">
                 <Reveal delay={80}>
-                  <div className="bg-card p-6 border border-border">
+                  <TiltCard className="bg-card p-6 border border-border">
                     <Sparkles className="w-8 h-8 text-primary mb-4" />
                     <h3 className="font-serif text-xl mb-2">Imagination</h3>
                     <p className="text-sm text-muted-foreground">Encouraging unique artistic expression</p>
-                  </div>
+                  </TiltCard>
                 </Reveal>
                 <Reveal type="image" delay={240}>
                   <div className="aspect-square relative overflow-hidden">
@@ -311,7 +319,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {artworks.map((artwork, i) => (
               <Reveal key={artwork.id} type="image" delay={i * 100}>
-                <div className="group cursor-pointer">
+                <div className="group cursor-pointer" data-cursor-text="View">
                   <div className="aspect-square relative overflow-hidden mb-4">
                     <Image
                       src={artwork.image}
@@ -354,7 +362,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <Reveal key={index} delay={index * 120}>
-                <div className="bg-background p-8 border border-border h-full">
+                <TiltCard className="bg-background p-8 border border-border h-full">
                   <p className="text-lg leading-relaxed mb-6 text-balance">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
@@ -362,7 +370,7 @@ export default function Home() {
                     <p className="font-serif text-primary">{testimonial.author}</p>
                     <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                   </div>
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
