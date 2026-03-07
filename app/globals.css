@@ -289,9 +289,10 @@ html {
   scrollbar-color: oklch(0.65 0 0) transparent;
 }
 
-/* ===== Hide cursor on desktop (custom cursor replaces it) ===== */
-@media (pointer: fine) {
-  body, a, button { cursor: none; }
+/* ===== Hide cursor only when custom cursor is active ===== */
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
 }
 
 /* ===== Smooth page transitions ===== */

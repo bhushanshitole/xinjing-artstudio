@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react"
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
   const followerRef = useRef<HTMLDivElement>(null)
-  const textRef = useRef<HTMLSpanElement>(null)
   const [hovering, setHovering] = useState(false)
   const [cursorText, setCursorText] = useState("")
   const [visible, setVisible] = useState(false)
@@ -14,6 +13,9 @@ export function CustomCursor() {
 
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return
+
+    // Only hide native cursor once custom cursor is active
+    document.documentElement.classList.add("custom-cursor-active")
 
     const onMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY }
@@ -36,7 +38,6 @@ export function CustomCursor() {
 
     document.addEventListener("mousemove", onMove)
 
-    // Re-bind on DOM changes (for dynamically rendered elements)
     function bindTargets() {
       const targets = document.querySelectorAll("a, button, [data-magnetic], [data-cursor-text]")
       targets.forEach((el) => {
@@ -64,6 +65,7 @@ export function CustomCursor() {
     animate()
 
     return () => {
+      document.documentElement.classList.remove("custom-cursor-active")
       document.removeEventListener("mousemove", onMove)
       observer.disconnect()
       cancelAnimationFrame(raf)
@@ -83,14 +85,11 @@ export function CustomCursor() {
             ? "w-[80px] h-[80px] bg-primary"
             : hovering
             ? "w-[60px] h-[60px] bg-primary opacity-20"
-            : "w-2 h-2 bg-foreground"
+            : "w-3 h-3 bg-primary"
         }`}
       >
         {showText && (
-          <span
-            ref={textRef}
-            className="text-primary-foreground text-xs font-medium uppercase tracking-wider"
-          >
+          <span className="text-primary-foreground text-xs font-medium uppercase tracking-wider">
             {cursorText}
           </span>
         )}
@@ -102,7 +101,7 @@ export function CustomCursor() {
             ? "w-[80px] h-[80px] border border-primary opacity-0"
             : hovering
             ? "w-[60px] h-[60px] border border-primary"
-            : "w-10 h-10 border border-foreground/15"
+            : "w-10 h-10 border border-foreground/30"
         }`}
       />
     </>
