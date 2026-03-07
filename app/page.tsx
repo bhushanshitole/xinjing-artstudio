@@ -75,7 +75,7 @@ const testimonials = [
     role: "Parent"
   },
   {
-    quote: "The teachers create such a nurturing environment. My son has gained so much confidence in his art.",
+    quote: "The teacher creates such a nurturing environment. My son has gained so much confidence in his art.",
     author: "David L.",
     role: "Parent"
   },
@@ -136,7 +136,7 @@ export default function Home() {
             <Link href="https://www.instagram.com/soulmira_art" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
               <Instagram className="w-5 h-5" />
             </Link>
-            <Link href="mailto:xinjingdesign1@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link href="mailto:soulmiraart@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
               <Mail className="w-5 h-5" />
             </Link>
           </div>
@@ -167,7 +167,7 @@ export default function Home() {
                 <Link href="https://www.instagram.com/soulmira_art" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
                   <Instagram className="w-5 h-5" />
                 </Link>
-                <Link href="mailto:xinjingdesign1@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="mailto:soulmiraart@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                   <Mail className="w-5 h-5" />
                 </Link>
               </div>
@@ -422,11 +422,11 @@ export default function Home() {
                   @soulmira_art
                 </Link>
                 <Link
-                  href="mailto:xinjingdesign1@gmail.com"
+                  href="mailto:soulmiraart@gmail.com"
                   className="inline-flex items-center gap-3 nav-link-anim text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="w-5 h-5 text-primary" />
-                  xinjingdesign1@gmail.com
+                  soulmiraart@gmail.com
                 </Link>
               </div>
             </div>
@@ -480,7 +480,7 @@ export default function Home() {
               <Link href="https://www.instagram.com/soulmira_art" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="w-5 h-5" />
               </Link>
-              <Link href="mailto:xinjingdesign1@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="mailto:soulmiraart@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
               </Link>
             </div>
