@@ -95,7 +95,12 @@ export default function Home() {
 
       {/* Featured Work — Full-screen showcase */}
       {featuredArtworks.map((artwork, i) => (
-        <section key={artwork.id} className="min-h-screen flex items-end relative overflow-hidden">
+        <Link
+          key={artwork.id}
+          href="/gallery"
+          className="min-h-screen flex items-end relative overflow-hidden block"
+          data-cursor-text="View"
+        >
           {/* Full-bleed background image */}
           <div className="absolute inset-0">
             <Image
@@ -110,23 +115,13 @@ export default function Home() {
           {/* Content overlay at bottom */}
           <div className="container mx-auto px-6 relative z-10 pb-20 md:pb-24">
             <Reveal delay={100}>
-              <div className="flex flex-col md:flex-row items-end justify-between gap-6">
-                <div>
-                  <p className="text-sm uppercase tracking-widest text-primary mb-3">
-                    {artwork.category}
-                  </p>
-                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground">
-                    {artwork.title}
-                  </h2>
-                </div>
-                <Link
-                  href="/gallery"
-                  className="group inline-flex items-center gap-2 text-sm uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors mb-2"
-                  data-cursor-text="View"
-                >
-                  <span className="cta-expand">View in Gallery</span>
-                  <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+              <div>
+                <p className="text-sm uppercase tracking-widest text-primary mb-3">
+                  {artwork.category}
+                </p>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground">
+                  {artwork.title}
+                </h2>
               </div>
             </Reveal>
           </div>
@@ -137,7 +132,7 @@ export default function Home() {
               {String(i + 1).padStart(2, "0")} / {String(featuredArtworks.length).padStart(2, "0")}
             </span>
           </div>
-        </section>
+        </Link>
       ))}
     </>
   )
