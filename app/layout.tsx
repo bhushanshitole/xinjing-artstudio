@@ -1,13 +1,19 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Navigation } from '@/components/navigation'
+import { Footer } from '@/components/footer'
+import { CustomCursor } from '@/components/custom-cursor'
+import { ScrollProgress } from '@/components/scroll-progress'
+import { NoiseOverlay } from '@/components/noise-overlay'
+import { SmoothScroll } from '@/components/smooth-scroll'
 import './globals.css'
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: '--font-serif'
 });
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: '--font-sans'
 });
@@ -42,7 +48,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`}>
-        {children}
+        <CustomCursor />
+        <ScrollProgress />
+        <NoiseOverlay />
+        <SmoothScroll />
+        <Navigation />
+        <main className="min-h-screen bg-background text-foreground">
+          {children}
+        </main>
+        <Footer />
         <Analytics />
       </body>
     </html>
