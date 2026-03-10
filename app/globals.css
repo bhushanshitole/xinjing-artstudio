@@ -307,18 +307,3 @@ html {
   transform: translateY(0);
 }
 
-/* ===== Scroll Snap (homepage) ===== */
-@media (min-width: 768px) {
-  .snap-container {
-    scroll-snap-type: y mandatory;
-    overflow-y: auto;
-    height: 100vh;
-    scrollbar-width: none;
-  }
-  .snap-container::-webkit-scrollbar {
-    display: none;
-  }
-  .snap-section {
-    scroll-snap-align: start;
-  }
-}

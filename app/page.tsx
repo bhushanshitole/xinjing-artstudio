@@ -10,17 +10,17 @@ import { ParallaxImage } from "@/components/parallax-image"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { GradientOrb } from "@/components/gradient-orb"
 import { PaintCanvas } from "@/components/paint-canvas"
-import { artworks, marqueeItems } from "@/lib/data"
+import { artworks } from "@/lib/data"
 
 const featuredArtworks = artworks.slice(0, 3)
 
 export default function Home() {
   return (
-    <div className="snap-container">
+    <>
       <PageLoader />
 
       {/* Hero Section */}
-      <section className="snap-section min-h-screen flex flex-col justify-center pt-20 pb-12 px-6 relative">
+      <section className="min-h-screen flex flex-col justify-center pt-20 pb-12 px-6 relative">
         <PaintCanvas />
         <GradientOrb />
         <div className="container mx-auto relative z-10">
@@ -93,21 +93,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Marquee */}
-      <div className="overflow-hidden py-5 border-t border-b border-border">
-        <div className="flex gap-12 animate-marquee whitespace-nowrap">
-          {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="flex items-center gap-12 flex-shrink-0">
-              <span className="font-serif text-xl md:text-2xl text-muted-foreground">{item}</span>
-              <span className="text-primary text-sm">&bull;</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Featured Work — Full-screen sections */}
+      {/* Featured Work — Full-screen showcase */}
       {featuredArtworks.map((artwork, i) => (
-        <section key={artwork.id} className="snap-section min-h-screen flex items-center relative overflow-hidden">
+        <section key={artwork.id} className="min-h-screen flex items-end relative overflow-hidden">
           {/* Full-bleed background image */}
           <div className="absolute inset-0">
             <Image
@@ -120,7 +108,7 @@ export default function Home() {
           </div>
 
           {/* Content overlay at bottom */}
-          <div className="container mx-auto px-6 relative z-10 mt-auto pb-24">
+          <div className="container mx-auto px-6 relative z-10 pb-20 md:pb-24">
             <Reveal delay={100}>
               <div className="flex flex-col md:flex-row items-end justify-between gap-6">
                 <div>
@@ -151,31 +139,6 @@ export default function Home() {
           </div>
         </section>
       ))}
-
-      {/* CTA Section */}
-      <section className="snap-section min-h-screen flex items-center justify-center px-6 border-t border-border">
-        <div className="container mx-auto text-center">
-          <Reveal>
-            <p className="text-sm uppercase tracking-widest text-primary mb-6">Start Creating</p>
-            <h2 className="text-4xl md:text-6xl font-serif mb-8 text-balance max-w-2xl mx-auto">
-              Nurturing Creativity, One Brushstroke at a Time
-            </h2>
-            <div className="flex flex-wrap items-center justify-center gap-6">
-              <MagneticButton as="a" href="/about">
-                <span className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-4 text-sm uppercase tracking-widest hover:bg-foreground hover:text-background transition-all duration-400">
-                  Learn More
-                  <ChevronRight className="w-4 h-4" />
-                </span>
-              </MagneticButton>
-              <MagneticButton as="a" href="/contact">
-                <span className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 text-sm uppercase tracking-widest hover:opacity-90 transition-opacity">
-                  Get in Touch
-                </span>
-              </MagneticButton>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-    </div>
+    </>
   )
 }
